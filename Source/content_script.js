@@ -1,32 +1,28 @@
 var first_time_through_the_loop = true;
 
-function replaceTextOnPage(from, to){
-  getAllTextNodes().forEach(function(node){
-		debugger;
-		//node.nodeValue = node.nodeValue.replace(new RegExp(quote(from), 'g'), to);
-  });
-
-  function getAllTextNodes(){
-    var result = [];
-
-    (function scanSubTree(node){
-      if(node.childNodes.length)
-        for(var i = 0; i < node.childNodes.length; i++)
-          scanSubTree(node.childNodes[i]);
-      else if(node.nodeType == Node.TEXT_NODE)
-        result.push(node);
-    })(document);
-
-    return result;
-  }
-
-  function quote(str){
-    return (str+'').replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
-  }
+var haystackText = "";
+function findMyText(needle, replacement) {
+     if (haystackText.length == 0) {
+          haystackText = document.getElementsByClassName("app-main")[0].innerHTML;
+     }
+     var match = new RegExp(needle, "ig");
+     var replaced = "";
+     if (replacement.length > 0) {
+          replaced = haystackText.replace(match, replacement);
+     }
+     else {
+          var boldText = "<div style=\"background-color: yellow; display: inline; font-weight: bold;\">" + needle + "</div>";
+          replaced = haystackText.replace(match, boldText);
+     }
+     document.getElementsByClassName("app-main")[0].innerHTML = replaced;
 }
+
 
 $("body").bind("DOMSubtreeModified", function() {
 	window.setTimeout(function() {
-		replaceTextOnPage('chicken', '<img src="https://afeld.github.io/emoji-css/emoji/chicken.png"/>');
+		if(first_time_through_the_loop) {}
+			findMyText('chicken', '<img src="https://afeld.github.io/emoji-css/emoji/chicken.png"/>');
+			first_time_through_the_loop = false;
+		}
 	}, 0);
 });
