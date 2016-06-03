@@ -1,15 +1,14 @@
 {
 	"manifest_version": 2,
-	"name": "Cloud To Butt",
+	"name": "emojicode",
 	"version": "1.0",
-	"description": "Replaces the text 'the cloud' with 'my butt'.",
-	"content_scripts": 
+	"description": "Replaces the text with 'emoji'.",
+	"content_scripts":
 	[
 		{
-			"matches": ["*://*/*"],
-			"js": ["content_script.js"],
-			"run_at": "document_end"
+			"matches": ["https://www2.municode.com/library/*"],
+			"js": ["jquery-1.9.1.min.js", "content_script.js"],
+			"run_at": "document_idle"
 		}
 	]
 }
-
