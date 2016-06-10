@@ -1,5 +1,3 @@
-var first_time_through_the_loop = true;
-
 var haystackText = "";
 function findMyText(needle, replacement) {
      if (haystackText.length == 0) {
@@ -17,12 +15,7 @@ function findMyText(needle, replacement) {
      document.getElementsByClassName("app-main")[0].innerHTML = replaced;
 }
 
-
-$("body").bind("DOMSubtreeModified", function() {
-	window.setTimeout(function() {
-		if(first_time_through_the_loop) {}
-			findMyText('chicken', '<img src="https://afeld.github.io/emoji-css/emoji/chicken.png"/>');
-			first_time_through_the_loop = false;
-		}
-	}, 0);
-});
+window.setTimeout(function() {
+  console.log("running");
+	findMyText('chicken', '<img src="https://afeld.github.io/emoji-css/emoji/chicken.png"/>');
+}, 3000);
