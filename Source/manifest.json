@@ -7,7 +7,7 @@
 	[
 		{
 			"matches": ["https://www2.municode.com/library/*"],
-			"js": ["jquery-1.9.1.min.js", "content_script.js"],
+			"js": ["jquery-1.9.1.min.js", "content_script.js", "pluralize.js"],
 			"run_at": "document_idle"
 		}
 	]
