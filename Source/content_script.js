@@ -668,7 +668,7 @@ var emojis = [
 'us',
 'fr',
 'es',
-'it',
+//'it',
 'ru',
 'gb',
 'uk',
@@ -797,7 +797,7 @@ var emojis = [
 'ophiuchus',
 'six_pointed_star',
 'negative_squared_cross_mark',
-'a',
+//'a',
 'b',
 'ab',
 'o2',
@@ -906,7 +906,7 @@ function findMyText(emojis) {
     debugger;
     matchedWord=matchedWord.toLowerCase();
     var emoji = plurals[matchedWord] || matchedWord;
-    return '<img style="height: 2em;" src="https://afeld.github.io/emoji-css/emoji/' + emoji + '.png"/>';
+    return '<img style="height: 2em;" alt="'+matchedWord+'" title="'+matchedWord+'" src="https://afeld.github.io/emoji-css/emoji/' + emoji + '.png"/>';
   });
 
   document.getElementsByClassName("app-main")[0].innerHTML = replaced;
