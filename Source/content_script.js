@@ -892,9 +892,9 @@ function findMyText(emojis) {
   });
 
   //add list of plural emojis to the original emoji list
-  emojis=emojis.concat(pluralEmojis);
+  emojis = emojis.concat(pluralEmojis);
 
-  emojis=emojis.map(function(emoji){
+  emojis = emojis.map(function(emoji){
     return '\\b' + emoji + '\\b';
   });
 
